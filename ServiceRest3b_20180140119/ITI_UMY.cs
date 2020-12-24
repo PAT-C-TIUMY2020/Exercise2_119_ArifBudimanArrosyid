@@ -39,16 +39,30 @@ namespace ServiceRest3b_20180140119
         */
         
         [OperationContract]
-        [WebGet(UriTemplate = "Mahasiswa", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "PUT", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa1", ResponseFormat = WebMessageFormat.Json)]
+        //[WebGet(UriTemplate = "Mahasiswa", ResponseFormat = WebMessageFormat.Json)]
         string UpdateMahasiswa(string nim, string nama, string prodi, string angkatan);
         
         [OperationContract]
-        [WebGet(UriTemplate = "Mahasiswa/nim={nim}", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa2", RequestFormat = WebMessageFormat.Json)]
+        //[WebGet(UriTemplate = "Mahasiswa/nim={nim}", ResponseFormat = WebMessageFormat.Json)]
         string DeleteByNIM(string nim);
         
         [OperationContract]
-        [WebGet(UriTemplate = "Mahasiswa", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(UriTemplate = "Mahasiswa3", ResponseFormat = WebMessageFormat.Json)]
+        //[WebGet(UriTemplate = "Mahasiswa", ResponseFormat = WebMessageFormat.Json)]
         string CountMahasiswa();
+        /*
+        [OperationContract]
+        [WebInvoke(Method = "PUT", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa1", ResponseFormat = WebMessageFormat.Json)]
+        string UpdateMahasiswa(string nim, string nama, string prodi, string angkatan);
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa2", RequestFormat = WebMessageFormat.Json)]
+        string DeleteMahasiswa(string nim);
+        [OperationContract]
+        [WebInvoke(UriTemplate = "Mahasiswa3", ResponseFormat = WebMessageFormat.Json)]
+        string CountMahasiswa();
+        */
     }
     [DataContract]
     public class Mahasiswa

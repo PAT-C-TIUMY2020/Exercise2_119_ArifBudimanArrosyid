@@ -27,8 +27,8 @@ namespace ServerConfig3c_20180140119_ArifBudimanArrosyid
 			{
 				hostObjek = new ServiceHost(typeof(TI_UMY));
 				hostObjek.Open();
-				labelON.Text = "ON";
-				labelONInfo.Text = "Klik OFF Untuk Mematikan";
+				labelKeterangan.Text = "ON";
+				
 				buttonON.Enabled = false;
 				buttonOFF.Enabled = true;
 			}
@@ -54,8 +54,8 @@ namespace ServerConfig3c_20180140119_ArifBudimanArrosyid
 			{
 				hostObjek = new ServiceHost(typeof(TI_UMY));
 				hostObjek.Close();
-				labelOFF.Text = "OFF";
-				labelOFFInfo.Text = "Klik ON Untuk Menghidupkan";
+				labelKeterangan.Text = "OFF";
+				
 				buttonON.Enabled = true;
 				buttonOFF.Enabled = false;
 			}

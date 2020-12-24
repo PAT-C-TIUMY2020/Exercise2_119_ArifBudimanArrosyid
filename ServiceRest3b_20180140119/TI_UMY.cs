@@ -204,7 +204,7 @@ namespace ServiceRest3b_20180140119
             string msg = "gagal";
             SqlConnection sqlcon = new SqlConnection("Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid");
             string query = String.Format("select Count(NIM) From Mahasiswa");
-            string stm = "SELECT COUNT(Mahasiswa) From NIM";
+            //string stm = "SELECT COUNT(Mahasiswa) From NIM";
             SqlCommand sqlcom = new SqlCommand(query, sqlcon);
 
             try
