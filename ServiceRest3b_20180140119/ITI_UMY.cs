@@ -26,6 +26,7 @@ namespace ServiceRest3b_20180140119
         [WebInvoke(Method = "POST", UriTemplate = "Mahasiswa", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string CreateMahasiswa(Mahasiswa mhs);
 
+
         //[OperationContract]
         //[WebInvoke(Method = "PUT", UriTemplate = "Mahasiswa/nim={nim}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         //string UpdateMahasiswa(Mahasiswa mhs);
@@ -36,6 +37,18 @@ namespace ServiceRest3b_20180140119
         [WebGet(UriTemplate = "Mahasiswa/nim={nim}", ResponseFormat = WebMessageFormat.Json)]
         Mahasiswa DeleteMahasiswaByNIM(string nim);
         */
+        
+        [OperationContract]
+        [WebGet(UriTemplate = "Mahasiswa", ResponseFormat = WebMessageFormat.Json)]
+        string UpdateMahasiswa(string nim, string nama, string prodi, string angkatan);
+        
+        [OperationContract]
+        [WebGet(UriTemplate = "Mahasiswa/nim={nim}", ResponseFormat = WebMessageFormat.Json)]
+        string DeleteByNIM(string nim);
+        
+        [OperationContract]
+        [WebGet(UriTemplate = "Mahasiswa", ResponseFormat = WebMessageFormat.Json)]
+        string CountMahasiswa();
     }
     [DataContract]
     public class Mahasiswa

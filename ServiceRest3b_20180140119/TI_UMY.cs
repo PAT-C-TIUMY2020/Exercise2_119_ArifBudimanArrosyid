@@ -19,12 +19,35 @@ namespace ServiceRest3b_20180140119
         //public Mahasiswa GetMahasiswaByNIM(string nim)
         //public Mahasiswa UpdateMahasiswa(string nim)
         //{
-            //string msg = "GAGAL";
-            //SqlConnection sqlcon = new SqlConnection("Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid");
-            //string query = string.Format("Update Nama, NIM, Prodi, Angkatan from dbo.Mahasiswa where NIM = '{0}'", nim);
-            //string query = string.Format("Select Nama, NIM, Prodi, Angkatan from dbo.Mahasiswa where NIM = '{0}'", nim);
-            //return msg;
+        //string msg = "GAGAL";
+        //SqlConnection sqlcon = new SqlConnection("Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid");
+        //string query = string.Format("Update Nama, NIM, Prodi, Angkatan from dbo.Mahasiswa where NIM = '{0}'", nim);
+        //string query = string.Format("Select Nama, NIM, Prodi, Angkatan from dbo.Mahasiswa where NIM = '{0}'", nim);
+        //return msg;
         //}
+        public string UpdateMahasiswa(string nim, string nama, string prodi, string angkatan)
+        {
+            try
+            {
+                string constring = "Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid";
+                SqlConnection connection;
+                SqlCommand com;
+
+                string sql2 = "update Mahasiswa SET Nama ='" + nama + "', Prodi ='" + prodi + "', Angkatan ='" + angkatan + "' where NIM = '" + nim + "'";
+                connection = new SqlConnection(constring);
+                com = new SqlCommand(sql2, connection);
+                connection.Open();
+                com.ExecuteNonQuery();
+                connection.Close();
+
+                return "sukses";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+
+        }
 
         public string CreateMahasiswa(Mahasiswa mhs)
         {
@@ -150,5 +173,57 @@ namespace ServiceRest3b_20180140119
             return mhs;
         }
         */
+        public string DeleteByNIM(string nim)
+        {
+            string msg = "GAGAL";
+            SqlConnection sqlcon = new SqlConnection("Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid");
+            string query = "delete from dbo.Mahasiswa where NIM = '" + nim + "'";
+            SqlCommand sqlcom = new SqlCommand(query, sqlcon);
+            try
+            {
+                sqlcon.Open();
+                Console.WriteLine(query);
+                sqlcom.ExecuteNonQuery();
+                sqlcon.Close();
+                msg = "Sukses";
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(query);
+                msg = "GAGAL";
+            }
+
+
+            return msg;
+        }
+
+        public string CountMahasiswa()
+        {
+            string msg = "gagal";
+            SqlConnection sqlcon = new SqlConnection("Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid");
+            string query = String.Format("select Count(NIM) From Mahasiswa");
+            string stm = "SELECT COUNT(Mahasiswa) From NIM";
+            SqlCommand sqlcom = new SqlCommand(query, sqlcon);
+
+            try
+            {
+                sqlcon.Open();
+                Console.WriteLine(query);
+                Int32 count = (Int32)sqlcom.ExecuteScalar();
+                sqlcon.Close();
+                msg = "Jumlah Data " + count;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(query);
+                msg = "GAGAL";
+            }
+
+            return msg;
+        }
     }
 }
