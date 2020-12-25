@@ -153,5 +153,10 @@ namespace Exercise2_20180140119_ArifBudimanArrosyid
         {
 
         }
+
+        private void buttonSync_Click(object sender, EventArgs e)
+        {
+			TampilData();
+		}
     }
 }
