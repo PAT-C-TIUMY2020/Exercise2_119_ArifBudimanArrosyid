@@ -41,13 +41,15 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonJumlah = new System.Windows.Forms.Button();
             this.labelJumlah = new System.Windows.Forms.Label();
+            this.textBoxDelete = new System.Windows.Forms.TextBox();
+            this.labelKeterangan = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(92, 274);
+            this.dataGridView1.Location = new System.Drawing.Point(68, 353);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(528, 191);
             this.dataGridView1.TabIndex = 18;
@@ -124,19 +126,21 @@
             this.buttonUpdate.TabIndex = 19;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(490, 115);
+            this.buttonDelete.Location = new System.Drawing.Point(167, 312);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(134, 23);
             this.buttonDelete.TabIndex = 20;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonJumlah
             // 
-            this.buttonJumlah.Location = new System.Drawing.Point(490, 152);
+            this.buttonJumlah.Location = new System.Drawing.Point(490, 180);
             this.buttonJumlah.Name = "buttonJumlah";
             this.buttonJumlah.Size = new System.Drawing.Size(134, 23);
             this.buttonJumlah.TabIndex = 21;
@@ -147,17 +151,36 @@
             // labelJumlah
             // 
             this.labelJumlah.AutoSize = true;
-            this.labelJumlah.Location = new System.Drawing.Point(520, 200);
+            this.labelJumlah.Location = new System.Drawing.Point(520, 228);
             this.labelJumlah.Name = "labelJumlah";
             this.labelJumlah.Size = new System.Drawing.Size(66, 13);
             this.labelJumlah.TabIndex = 22;
             this.labelJumlah.Text = "Hasil Jumlah";
             // 
+            // textBoxDelete
+            // 
+            this.textBoxDelete.Location = new System.Drawing.Point(331, 314);
+            this.textBoxDelete.Name = "textBoxDelete";
+            this.textBoxDelete.Size = new System.Drawing.Size(189, 20);
+            this.textBoxDelete.TabIndex = 23;
+            this.textBoxDelete.Text = "Masukan NIM untuk delete";
+            // 
+            // labelKeterangan
+            // 
+            this.labelKeterangan.AutoSize = true;
+            this.labelKeterangan.Location = new System.Drawing.Point(276, 258);
+            this.labelKeterangan.Name = "labelKeterangan";
+            this.labelKeterangan.Size = new System.Drawing.Size(62, 13);
+            this.labelKeterangan.TabIndex = 24;
+            this.labelKeterangan.Text = "Keterangan";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 533);
+            this.ClientSize = new System.Drawing.Size(702, 570);
+            this.Controls.Add(this.labelKeterangan);
+            this.Controls.Add(this.textBoxDelete);
             this.Controls.Add(this.labelJumlah);
             this.Controls.Add(this.buttonJumlah);
             this.Controls.Add(this.buttonDelete);
@@ -195,6 +218,8 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonJumlah;
         private System.Windows.Forms.Label labelJumlah;
+        private System.Windows.Forms.TextBox textBoxDelete;
+        private System.Windows.Forms.Label labelKeterangan;
     }
 }
 

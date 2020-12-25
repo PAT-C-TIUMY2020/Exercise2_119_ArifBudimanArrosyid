@@ -25,29 +25,7 @@ namespace ServiceRest3b_20180140119
         //string query = string.Format("Select Nama, NIM, Prodi, Angkatan from dbo.Mahasiswa where NIM = '{0}'", nim);
         //return msg;
         //}
-        public string UpdateMahasiswa(string nim, string nama, string prodi, string angkatan)
-        {
-            try
-            {
-                string constring = "Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid";
-                SqlConnection connection;
-                SqlCommand com;
-
-                string sql2 = "update Mahasiswa SET Nama ='" + nama + "', Prodi ='" + prodi + "', Angkatan ='" + angkatan + "' where NIM = '" + nim + "'";
-                connection = new SqlConnection(constring);
-                com = new SqlCommand(sql2, connection);
-                connection.Open();
-                com.ExecuteNonQuery();
-                connection.Close();
-
-                return "sukses";
-            }
-            catch (Exception e)
-            {
-                return e.ToString();
-            }
-
-        }
+        
 
         public string CreateMahasiswa(Mahasiswa mhs)
         {
@@ -223,6 +201,29 @@ namespace ServiceRest3b_20180140119
                 msg = "GAGAL";
             }
 
+            return msg;
+        }
+
+        public string UpdateMahasiswa(Mahasiswa mhs)
+        {
+            string msg = "Gagal";
+
+            SqlConnection sqlConnection = new SqlConnection("Data Source=ARIFBUDIMANAR;Initial Catalog=\"TI UMY\";Persist Security Info=True;User ID=sa;Password=Arrosyid");
+            string query = string.Format("Update dbo.Mahasiswa set Nama = '{0}', Prodi = '{1}', Angkatan = '{2}' where NIM = '{3}'", mhs.nama, mhs.prodi, mhs.angkatan, mhs.nim);
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+
+            try
+            {
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+                msg = "Sukses";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(query);
+            }
             return msg;
         }
     }

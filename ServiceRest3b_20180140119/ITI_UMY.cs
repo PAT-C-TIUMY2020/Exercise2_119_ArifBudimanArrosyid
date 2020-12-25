@@ -39,12 +39,14 @@ namespace ServiceRest3b_20180140119
         */
         
         [OperationContract]
-        [WebInvoke(Method = "PUT", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa1", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "PUT", UriTemplate = "UpdateMahasiswaByNIM", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        //[WebInvoke(Method = "PUT", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa1", ResponseFormat = WebMessageFormat.Json)]
         //[WebGet(UriTemplate = "Mahasiswa", ResponseFormat = WebMessageFormat.Json)]
-        string UpdateMahasiswa(string nim, string nama, string prodi, string angkatan);
+        string UpdateMahasiswa(Mahasiswa mhs);
         
         [OperationContract]
-        [WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa2", RequestFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "DELETE", UriTemplate = "DeleteMahasiswa/{nim}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        //[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "Mahasiswa2", RequestFormat = WebMessageFormat.Json)]
         //[WebGet(UriTemplate = "Mahasiswa/nim={nim}", ResponseFormat = WebMessageFormat.Json)]
         string DeleteByNIM(string nim);
         
