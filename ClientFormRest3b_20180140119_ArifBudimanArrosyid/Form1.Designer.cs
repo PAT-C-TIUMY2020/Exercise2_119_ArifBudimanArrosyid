@@ -43,6 +43,7 @@
             this.labelJumlah = new System.Windows.Forms.Label();
             this.textBoxDelete = new System.Windows.Forms.TextBox();
             this.labelKeterangan = new System.Windows.Forms.Label();
+            this.buttonSync = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,11 +175,22 @@
             this.labelKeterangan.TabIndex = 24;
             this.labelKeterangan.Text = "Keterangan";
             // 
+            // buttonSync
+            // 
+            this.buttonSync.Location = new System.Drawing.Point(490, 125);
+            this.buttonSync.Name = "buttonSync";
+            this.buttonSync.Size = new System.Drawing.Size(134, 23);
+            this.buttonSync.TabIndex = 25;
+            this.buttonSync.Text = "Sycn Data";
+            this.buttonSync.UseVisualStyleBackColor = true;
+            this.buttonSync.Click += new System.EventHandler(this.buttonSync_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 570);
+            this.Controls.Add(this.buttonSync);
             this.Controls.Add(this.labelKeterangan);
             this.Controls.Add(this.textBoxDelete);
             this.Controls.Add(this.labelJumlah);
@@ -220,6 +232,7 @@
         private System.Windows.Forms.Label labelJumlah;
         private System.Windows.Forms.TextBox textBoxDelete;
         private System.Windows.Forms.Label labelKeterangan;
+        private System.Windows.Forms.Button buttonSync;
     }
 }
 

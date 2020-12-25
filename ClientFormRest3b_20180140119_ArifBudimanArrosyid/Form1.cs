@@ -140,5 +140,10 @@ namespace ClientFormRest3b_20180140119_ArifBudimanArrosyid
                 MessageBox.Show("Please check your data");
             }
         }
+
+        private void buttonSync_Click(object sender, EventArgs e)
+        {
+            TampilData();
+        }
     }
 }
